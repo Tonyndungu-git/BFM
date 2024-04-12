@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# exit on error
-
 set -o errexit
 
-pip install -r requirements.txt
-python manage.py collectstatic --no-input
-python manage.py migrate
+# Install Python dependencies
+pip install -r budget_friendly_movers/requirements.txt
+
+# Collect static files
+python budget_friendly_movers/manage.py collectstatic --no-input
+
+# Apply database migrations
+python budget_friendly_movers/manage.py migrate
