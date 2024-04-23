@@ -7,3 +7,9 @@ def index(request):
 
 def about(request):
     return render(request, 'movers/about.html')
+
+
+
+def services_view(request):
+    # Logic to handle the services view
+    return render(request, 'movers/services.html')  # Example response

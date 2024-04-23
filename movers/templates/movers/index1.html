@@ -1,0 +1,29 @@
+{% extends 'movers/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Home - Budget Friendly Movers{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Budget Friendly Movers</h1>
+    <p>Here you can find affordable and reliable moving services.</p>
+
+    <!-- Displaying Dynamic Content -->
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'img/photo1.jpeg' %}" alt="Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'img/photo2.jpeg' %}" alt="Photo 2" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-4">
+        <a href="{% url 'services' %}" class="btn btn-primary mr-3">Our Services</a>
+        <a href="{% url 'about' %}" class="btn btn-success">About</a>
+    </div>
+</div>
+{% endblock %}
