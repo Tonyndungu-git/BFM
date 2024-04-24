@@ -1,18 +1,25 @@
 {% load static %}
 
 <!DOCTYPE HTML>
-<!--
-    Budget Friendly Movers
-    A professional moving services template designed by you
--->
 <html>
 <head>
-    <title>Budget Friendly Movers</title>
+    <title>Contact Us - Budget Friendly Movers</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description" content="Professional moving services with Budget Friendly Movers">
+    <meta name="description" content="Contact Budget Friendly Movers for professional moving services">
     <meta name="keywords" content="moving, movers, relocation, budget friendly">
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <style>
+        /* Additional styles for notification */
+        .notification {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body class="is-preload">
 
@@ -30,54 +37,48 @@
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'services' %}">Services</a></li>
         <li><a href="{% url 'about' %}">About Us</a></li>
-        <li><a href="{% url 'contact' %}">Contact Us</a></li>  <!-- New link for contact page -->
-        <li><a href="{% url 'get_quote' %}">Get Quote</a></li>  <!-- New link for contact page -->
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
     </ul>
 </nav>
 
 <!-- Banner -->
 <section id="banner">
     <div class="inner">
-        <h1>Budget Friendly Movers</h1>
-        <p>Experience stress-free moving with our professional services<br>
-            designed to meet your budget and exceed expectations.</p>
+        <h1>Contact Us</h1>
+        <p>Reach out to Budget Friendly Movers for inquiries or quotes</p>
     </div>
-    <video autoplay loop muted playsinline>
-        <source src="{% static 'images/banner.mp4' %}" type="video/mp4">
-    </video>
 </section>
 
-<!-- Highlights -->
+<!-- Contact Form -->
 <section class="wrapper">
     <div class="inner">
         <header class="special">
-            <h2>Our Moving Services</h2>
-            <p>From local moves to long-distance relocations, we provide efficient and reliable moving services tailored to your needs. Our team ensures a stress-free experience for your next move.</p>
+            <h2>Get in Touch</h2>
+            <p>Fill out the form below and our team will get back to you shortly.</p>
         </header>
-        <div class="highlights">
-            <!-- Your service highlights can go here -->
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section id="cta" class="wrapper">
-    <div class="inner">
-        <h2>Why Choose Us?</h2>
-        <p>With Budget Friendly Movers, you'll benefit from our dedicated team that prioritizes customer satisfaction. We handle your belongings with care and precision, ensuring a smooth transition to your new location.</p>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section class="wrapper">
-    <div class="inner">
-        <header class="special">
-            <h2>Client Testimonials</h2>
-            <p>See what our clients have to say about our moving services:</p>
-        </header>
-        <div class="testimonials">
-            <!-- Testimonial content can go here -->
-        </div>
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+        <!-- Contact Form -->
+        <form id="contactForm" method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="fields">
+                <div class="field">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="field">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="field">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value="Send Message" class="primary"></li>
+            </ul>
+        </form>
     </div>
 </section>
 
@@ -86,8 +87,8 @@
     <div class="inner">
         <div class="content">
             <section>
-                <h3>Contact Us</h3>
-                <p>Get in touch with Budget Friendly Movers for a quote or inquiries:</p>
+                <h3>Contact Information</h3>
+                <p>Get in touch with us:</p>
                 <ul class="alt">
                     <li><a href="#">Email: info@budgetmovers.com</a></li>
                     <li><a href="#">Phone: 0721609306</a></li>
@@ -102,6 +103,7 @@
                     <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
                     <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
                 </ul>
+           
             </section>
         </div>
     </div>
