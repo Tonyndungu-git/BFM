@@ -9,8 +9,6 @@ class Mover(models.Model):
     def __str__(self):
         return self.name
     
-# movers/models.py
-
 class Quotation(models.Model):
     MOVING_TYPE_CHOICES = [
         ('Residential', 'Residential'),
@@ -24,16 +22,11 @@ class Quotation(models.Model):
         ('4+ Bedrooms', '4+ Bedrooms'),
     ]
 
-    MOVING_TIME_HOURS_CHOICES = [(str(i), str(i)) for i in range(1, 13)]
-    MOVING_TIME_MINUTES_CHOICES = [(str(i), str(i)) for i in range(0, 60, 15)]
-
     moving_type = models.CharField(max_length=20, choices=MOVING_TYPE_CHOICES)
     moving_date = models.DateField()
-    moving_time_hours = models.CharField(max_length=2, choices=MOVING_TIME_HOURS_CHOICES)
-    moving_time_minutes = models.CharField(max_length=2, choices=MOVING_TIME_MINUTES_CHOICES)
     house_size = models.CharField(max_length=20, choices=HOUSE_SIZE_CHOICES)
-    moving_from = models.CharField(max_length=100)
-    moving_to = models.CharField(max_length=100)
+    source_address = models.CharField(max_length=100, verbose_name="Moving From")
+    destination_address = models.CharField(max_length=100, verbose_name="Moving To")
     current_house_type = models.CharField(max_length=100)
     destination_house_type = models.CharField(max_length=100)
     first_name = models.CharField(max_length=50)
@@ -52,4 +45,3 @@ class Quotation(models.Model):
         # For example:
         # Calculate cost based on house size, distance, extra services, etc.
         return "Insert logic for estimated cost calculation"
-

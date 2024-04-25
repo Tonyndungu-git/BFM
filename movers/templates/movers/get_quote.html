@@ -1,5 +1,6 @@
 {% load static %}
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,33 +11,33 @@
 </head>
 <body>
 
-<!-- Navigation menu with Home button -->
-<nav>
-    <ul>
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <!-- Add other menu items if needed -->
-    </ul>
-</nav>
-
 <div class="container">
     <h1>Get a Quote - Budget Friendly Movers</h1>
     <div class="quote-form">
         <form method="post" action="{% url 'get_quote' %}">
             {% csrf_token %}
+            
+            {% if form.errors %}
+                <ul class="errorlist">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            
             <div class="form-group">
-                <label for="serviceType">Service Type:</label>
-                <select id="serviceType" name="serviceType" required>
-                    <option value="">Select Service Type</option>
-                    <option value="Local Moving">Local Moving</option>
-                    <option value="Long Distance Moving">Long Distance Moving</option>
-                    <option value="Packing Services">Packing Services</option>
-                    <option value="Storage Solutions">Storage Solutions</option>
-                    <option value="Other">Other</option>
+                <label for="moving_type">Moving Type:</label>
+                <select id="moving_type" name="moving_type" required>
+                    <option value="">Select Moving Type</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="houseSize">House Size:</label>
-                <select id="houseSize" name="houseSize" required>
+                <label for="house_size">House Size:</label>
+                <select id="house_size" name="house_size" required>
                     <option value="">Select House Size</option>
                     <option value="Single or Bedsitter">Single or Bedsitter</option>
                     <option value="1 Bedroom">1 Bedroom</option>
@@ -48,40 +49,48 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="movingDate">Moving Date:</label>
-                <input type="date" id="movingDate" name="movingDate" required>
+                <label for="moving_date">Moving Date:</label>
+                <input type="date" id="moving_date" name="moving_date" required>
             </div>
             <div class="form-group">
-                <label for="movingFrom">Moving From:</label>
-                <input type="text" id="movingFrom" name="movingFrom" required>
+                <label for="moving_from">Moving From:</label>
+                <input type="text" id="moving_from" name="moving_from" >
             </div>
             <div class="form-group">
-                <label for="movingTo">Moving To:</label>
-                <input type="text" id="movingTo" name="movingTo" required>
+                <label for="moving_to">Moving To:</label>
+                <input type="text" id="moving_to" name="moving_to" >
             </div>
             <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <label for="current_house_type">Current House Type:</label>
+                <input type="text" id="current_house_type" name="current_house_type" required>
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <label for="destination_house_type">Destination House Type:</label>
+                <input type="text" id="destination_house_type" name="destination_house_type" required>
+            </div>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" required>
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" id="phone_number" name="phone_number" required>
             </div>
             <div class="form-group">
-                <label for="extraServices">Extra Services:</label>
-                <textarea id="extraServices" name="extraServices" rows="4"></textarea>
+                <label for="extra_services">Extra Services:</label>
+                <textarea id="extra_services" name="extra_services" rows="4"></textarea>
             </div>
             <div class="form-group">
-                <label for="moreDetails">More Details:</label>
-                <textarea id="moreDetails" name="moreDetails" rows="4"></textarea>
+                <label for="more_details">More Details:</label>
+                <textarea id="more_details" name="more_details" rows="4"></textarea>
             </div>
             <button type="submit">Get Quote</button>
         </form>

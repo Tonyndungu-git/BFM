@@ -1,12 +1,97 @@
-{% extends 'movers/base.html' %}
+{% load static %}
 
-{% block title %}About Us - Budget Friendly Movers{% endblock %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>About Us - Budget Friendly Movers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="About Budget Friendly Movers">
+    <meta name="keywords" content="moving, movers, relocation, budget friendly">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <style>
+        /* Additional styles for notification */
+        .notification {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="is-preload">
 
-{% block content %}
-<div class="container">
-    <h1>About Budget Friendly Movers</h1>
-    <p>Welcome to Budget Friendly Movers, where you can find affordable and reliable moving services.</p>
-    <p>Our mission is to provide high-quality moving solutions that fit your budget and exceed your expectations.</p>
-    <p>Contact us today to learn more about how we can assist with your next move!</p>
-</div>
-{% endblock %}
+<!-- Header -->
+<header id="header">
+    <a class="logo" href="{% url 'index' %}">Budget Friendly Movers</a>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    </ul>
+</nav>
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <h1>About Budget Friendly Movers</h1>
+        <p>Welcome to Budget Friendly Movers, where you can find affordable and reliable moving services.</p>
+    </div>
+</section>
+
+<!-- Main content section -->
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide high-quality moving solutions that fit your budget and exceed your expectations.</p>
+        </header>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <div class="content">
+            <section>
+                <h3>Contact Information</h3>
+                <p>Get in touch with us:</p>
+                <ul class="alt">
+                    <li><a href="#">Email: info@budgetmovers.com</a></li>
+                    <li><a href="#">Phone: 0721609306</a></li>
+                    <li><a href="#">Address: Kasarani, Nairobi, Kenya</a></li>
+                </ul>
+            </section>
+            <section>
+                <h4>Follow Us</h4>
+                <ul class="plain">
+                    <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                    <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                    <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                    <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/browser.min.js' %}"></script>
+<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
+

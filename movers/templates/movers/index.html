@@ -13,6 +13,18 @@
     <meta name="description" content="Professional moving services with Budget Friendly Movers">
     <meta name="keywords" content="moving, movers, relocation, budget friendly">
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <style>
+        /* Custom styles for images */
+        .banner-img {
+            width: 100%; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .highlights-img {
+            max-width: 100%; /* Adjust maximum width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add spacing below the image */
+        }
+    </style>
 </head>
 <body class="is-preload">
 
@@ -20,7 +32,9 @@
 <header id="header">
     <a class="logo" href="{% url 'index' %}">Budget Friendly Movers</a>
     <nav>
+        <button class="cta-button" onclick="window.location.href='{% url 'get_quote' %}'">Get a Quote</button>
         <a href="#menu">Menu</a>
+        
     </nav>
 </header>
 
@@ -33,6 +47,7 @@
         <li><a href="{% url 'contact' %}">Contact Us</a></li>  <!-- New link for contact page -->
         <li><a href="{% url 'get_quote' %}">Get Quote</a></li>  <!-- New link for contact page -->
     </ul>
+    
 </nav>
 
 <!-- Banner -->
@@ -42,9 +57,6 @@
         <p>Experience stress-free moving with our professional services<br>
             designed to meet your budget and exceed expectations.</p>
     </div>
-    <video autoplay loop muted playsinline>
-        <source src="{% static 'images/banner.mp4' %}" type="video/mp4">
-    </video>
 </section>
 
 <!-- Highlights -->
@@ -55,6 +67,10 @@
             <p>From local moves to long-distance relocations, we provide efficient and reliable moving services tailored to your needs. Our team ensures a stress-free experience for your next move.</p>
         </header>
         <div class="highlights">
+            <!-- Image of people moving alongside service highlights -->
+            <img class="highlights-img" src="{% static 'images/elliott_day01_216.jpg' %}" alt="People Moving">
+            <img class="highlights-img" src="{% static 'images/OIP.jpeg' %}" alt="People Moving">
+            <img class="highlights-img" src="{% static 'images/OIP (2).jpeg' %}" alt="People Moving">
             <!-- Your service highlights can go here -->
         </div>
     </div>

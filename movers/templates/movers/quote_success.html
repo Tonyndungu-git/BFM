@@ -1,0 +1,28 @@
+<!-- movers/get_quote.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote - Budget Friendly Movers</title>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/get_quote.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Get a Quote - Budget Friendly Movers</h1>
+    <div class="quote-form">
+        <form method="post" action="{% url 'get_quote' %}">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields -->
+            <button type="submit">Get Quote</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
