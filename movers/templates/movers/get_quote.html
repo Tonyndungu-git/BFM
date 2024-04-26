@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/get_quote.css' %}">
 </head>
+
+
 <body>
 
 <div class="container">
     <h1>Get a Quote - Budget Friendly Movers</h1>
+    <a class="logo" href="{% url 'index' %}">Home</a>
     <div class="quote-form">
         <form method="post" action="{% url 'get_quote' %}">
             {% csrf_token %}

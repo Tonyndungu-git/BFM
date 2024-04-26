@@ -27,13 +27,10 @@ def get_quote_view(request):
     if request.method == 'POST':
         form = QuotationForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Optionally, perform additional actions after form submission
-            return render(request, 'movers/quote_success.html')  # Render success page after form submission
-        else:
-            # Form is not valid, display errors
-            print(form.errors)  # Output form errors to console for debugging
+            form.save()  # Save the valid form data to the database
+            # Optionally, you can redirect to a success page
+            return render(request, 'movers/quote_success.html')
     else:
         form = QuotationForm()
-
+    
     return render(request, 'movers/get_quote.html', {'form': form})
