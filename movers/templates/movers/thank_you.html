@@ -1,5 +1,29 @@
 {% load static %}
 
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Thank You - Budget Friendly Movers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Thank you for contacting Budget Friendly Movers">
+    <meta name="keywords" content="thank you, budget movers, movers">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <style>
+        /* Additional styles for notification */
+        .notification {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+<!-- Header -->
 <header id="header">
     <a class="logo" href="{% url 'index' %}">Budget Friendly Movers</a>
     <nav>
