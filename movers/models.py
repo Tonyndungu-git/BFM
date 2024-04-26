@@ -4,7 +4,6 @@ class Mover(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
-    # Add more fields as needed
     
     def __str__(self):
         return self.name
@@ -41,7 +40,13 @@ class Quotation(models.Model):
         return f"Quotation request by {self.first_name} {self.last_name}"
 
     def estimated_cost(self):
-        # Add logic here to calculate estimated cost based on the quotation details
-        # For example:
-        # Calculate cost based on house size, distance, extra services, etc.
         return "Insert logic for estimated cost calculation"
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.name} ({self.email})"

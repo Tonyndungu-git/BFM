@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mover, Quotation
+from .models import Mover, Quotation, ContactMessage
 
 
 
@@ -7,3 +7,4 @@ from .models import Mover, Quotation
 
 admin.site.register(Mover)
 admin.site.register(Quotation)
+admin.site.register(ContactMessage)
