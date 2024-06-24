@@ -13,6 +13,42 @@ def services_view(request):
     # Logic to handle the services view
     return render(request, 'movers/services.html')  # Example response
 
+from django.shortcuts import render, get_object_or_404
+
+# Example data structure
+APARTMENTS = {
+    'apartment1': {
+        'title': 'Apartment 1',
+        'description': '2 Bedroom, 1 Bathroom and toilet, Kasarani, Nairobi',
+        'images': [
+            'images/apartments11.jpg',
+            'images/apartment12.jpg',
+            'images/apartment13.jpg',
+            'images/apartment14.jpg',
+        ]
+    },
+    # 'apartment2': {
+    #     'title': 'Apartment 2',
+    #     'description': '3 Bedroom, 2 Bathroom, Suburbs',
+    #     'images': [
+    #         'images/apartment2.jpg',
+    #         'images/apartment2_1.jpg',
+    #         'images/apartment2_2.jpg',
+    #         'images/apartment2_3.jpg',
+    #         'images/apartment2_4.jpg',
+    #     ]
+    # },
+    # Add more apartments as needed
+}
+
+def apartments(request):
+    return render(request, 'movers/apartments.html', {'apartments': APARTMENTS})
+
+def apartment_detail(request, apartment_name):
+    apartment = get_object_or_404(APARTMENTS, apartment_name)
+    return render(request, 'movers/apartment_detail.html', {'apartment': apartment})
+
+
 def contact_us(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

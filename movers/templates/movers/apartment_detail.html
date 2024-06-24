@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{ apartment.title }} - Budget Friendly Movers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Detailed information about {{ apartment.title }}">
+    <meta name="keywords" content="apartment, rent, relocation">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <style>
+        /* Additional styles for apartment detail page */
+        .apartment-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .apartment-gallery img {
+            flex: 1 1 calc(50% - 20px);
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<header id="header">
+    <a class="logo" href="{% url 'index' %}">Budget Friendly Movers</a>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    </ul>
+</nav>
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <h1>{{ apartment.title }}</h1>
+        <p>Detailed information about {{ apartment.title }}:</p>
+    </div>
+</section>
+
+<!-- Main content section -->
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+            <h2>{{ apartment.title }} Details</h2>
+            <p>{{ apartment.description }}</p>
+        </header>
+        <div class="apartment-gallery">
+            {% for image in apartment.images %}
+                <img src="{% static image %}" alt="{{ apartment.title }} Photo {{ forloop.counter }}">
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <div class="content">
+            <section>
+                <h3>Contact Information</h3>
+                <p>Get in touch with us:</p>
+                <ul class="alt">
+                    <li><a href="#">Email: info@budgetmovers.com</a></li>
+                    <li><a href="#">Phone: 0721609306</a></li>
+                    <li><a href="#">Address: Kasarani, Nairobi, Kenya</a></li>
+                </ul>
+            </section>
+            <section>
+                <h4>Follow Us</h4>
+                <ul class="plain">
+                    <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                    <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                    <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                    <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/browser.min.js' %}"></script>
+<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
