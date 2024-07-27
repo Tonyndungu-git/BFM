@@ -18,7 +18,8 @@ from django.shortcuts import render, get_object_or_404
 # Example data structure
 APARTMENTS = {
     'apartment1': {
-        'title': 'Apartment 1',
+        'title': 'Kasarani Apartments',
+        'Price': 'Ksh 20000',
         'description': '2 Bedroom, 1 Bathroom and toilet, Kasarani, Nairobi',
         'images': [
             'images/apartments11.jpg',
@@ -27,18 +28,19 @@ APARTMENTS = {
             'images/apartment14.jpg',
         ]
     },
-    # 'apartment2': {
-    #     'title': 'Apartment 2',
-    #     'description': '3 Bedroom, 2 Bathroom, Suburbs',
-    #     'images': [
-    #         'images/apartment2.jpg',
-    #         'images/apartment2_1.jpg',
-    #         'images/apartment2_2.jpg',
-    #         'images/apartment2_3.jpg',
-    #         'images/apartment2_4.jpg',
-    #     ]
-    # },
-    # Add more apartments as needed
+    'apartment2': {
+        'title': 'Seasons Kasarani Apartments',
+        'Price': 'Ksh 30000',
+        'description': '3 Bedroom, 1 large Kitchen, Kasarani',
+        'images': [
+            'images/apartment21.jpg',
+            'images/apartment22.jpg',
+            'images/apartment33.jpg',
+            'images/apartment24.jpg',
+            'images/apartment25.jpg',
+        ]
+    },
+    #Add more apartments as needed
 }
 
 def apartments(request):

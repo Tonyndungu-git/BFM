@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Apartments - Budget Friendly Movers</title>
+    <title>Apartments -     Reliable Movers</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="Explore our available apartments for rent">
@@ -53,7 +53,7 @@
 
 <!-- Header -->
 <header id="header">
-    <a class="logo" href="{% url 'index' %}">Budget Friendly Movers</a>
+    <a class="logo" href="{% url 'index' %}">Reliable Movers</a>
     <nav>
         <a href="#menu">Menu</a>
     </nav>
@@ -92,6 +92,7 @@
                 <div class="apartment-details">
                     <h3><a href="{% url 'apartment_detail' key %}">{{ apartment.title }}</a></h3>
                     <p>{{ apartment.description }}</p>
+                    <p><strong>Rent: {{ apartment.Price }}</strong></p>
                     <div class="apartment-subsection">
                         {% for image in apartment.images %}
                             <img src="{% static image %}" alt="{{ apartment.title }} Photo {{ forloop.counter }}">
