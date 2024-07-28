@@ -90,10 +90,11 @@ WSGI_APPLICATION = 'budget_friendly_movers.wsgi.application'
 #         }
 #     }
 
-# Adding new database configuration to disable database usage
+# Adding new database configuration for an in-memory SQLite database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.dummy'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
     }
 }
 
