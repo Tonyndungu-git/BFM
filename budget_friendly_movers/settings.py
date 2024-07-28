@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-8jprm52_jhd==1u8*(y(olux&o-h9uv5p6en26n1e4$t&2=ake')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8jprm52_jhd==1u8*(y(olux&o-h9uv5p6en26n1e4$t&2=ake')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = [ "127.0.0.1", "localhost", "budget-friendly-movers.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "budget-friendly-movers.onrender.com"]
 
 
 # Application definition
@@ -77,18 +77,25 @@ WSGI_APPLICATION = 'budget_friendly_movers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))        
-}
+# Commenting out the existing database configuration
+# if not DEBUG:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+# Adding new database configuration to disable database usage
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy'
     }
+}
 
 
 # Password validation
@@ -125,9 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-# Modify STATIC_URL to use Django's static file handling
 STATIC_URL = '/static/'
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
